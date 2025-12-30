@@ -1,0 +1,221 @@
+/* HomePage.css - Adicionar isto */
+
+/* Garantir que todas as colunas tenham mesma altura */
+.row-equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row-equal-height .team-col {
+  display: flex;
+}
+
+.row-equal-height .card-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.row-equal-height .team-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.home-page {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 40px 20px;
+  border-radius: 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 210, 190, 0.1) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: #E10600;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.9rem;
+  color: #949498;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #444, transparent);
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.title-text {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 0 20px;
+  background: linear-gradient(90deg, #E10600, #00D2BE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-line {
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #E10600 25%, 
+    #00D2BE 75%, 
+    transparent 100%);
+  margin-top: 10px;
+}
+
+.team-col {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-wrapper {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cta-text {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.track-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 4px;
+}
+
+.start-line, .finish-line {
+  width: 40px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #000,
+    #000 10px,
+    #fff 10px,
+    #fff 20px
+  );
+}
+
+.dashed-line {
+  flex-grow: 1;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    #ccc 10px,
+    #ccc 20px
+  );
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .stat-divider {
+    width: 100px;
+    height: 1px;
+  }
+}

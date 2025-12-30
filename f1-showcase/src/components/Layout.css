@@ -1,0 +1,97 @@
+/* Layout.css */
+.f1-header {
+  background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+  border-bottom: 4px solid #E10600;
+  position: relative;
+  overflow: hidden;
+}
+
+.f1-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    #E10600 0%, 
+    #E10600 25%, 
+    #FFFFFF 25%, 
+    #FFFFFF 50%, 
+    #E10600 50%, 
+    #E10600 75%, 
+    #FFFFFF 75%, 
+    #FFFFFF 100%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.f1-logo-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.f1-logo-red {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #E10600;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
+.f1-logo-text {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Formula1', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.f1-main-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.f1-subtitle {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  color: #949498;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+}
+
+.f1-main {
+  min-height: calc(100vh - 200px);
+  background-color: #f5f5f5;
+  padding: 40px 0;
+}
+
+.f1-footer {
+  background-color: #000;
+  color: #949498;
+  border-top: 1px solid #333;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.footer-flags span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.flag-red { background-color: #E10600; }
+.flag-yellow { background-color: #FFD700; }
+.flag-green { background-color: #00D2BE; }

@@ -1,0 +1,137 @@
+
+:root {
+  --f1-red: #e10600;
+  --f1-black: #15151e;
+  --f1-dark-gray: #1f1f27;
+  --f1-border: #38383f;
+}
+
+body {
+  background-color: var(--f1-black);
+  color: white;
+  font-family: 'Chakra Petch', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container Principal - Limita a largura no Desktop */
+.container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.main-header h1 {
+  text-align: center;
+  font-size: 4rem; /* Maior no desktop */
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  margin-bottom: 60px;
+}
+
+/* Card da Equipe - Desktop Layout */
+.team-card {
+  background: var(--f1-dark-gray);
+  margin-bottom: 50px;
+  padding: 40px; /* Mais respiro */
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease;
+}
+
+/* Header da Equipe */
+.team-header {
+  display: flex;
+  padding: 0 40px;
+  margin: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  border-bottom: 1px solid var(--f1-border);
+  padding-bottom: 20px;
+}
+
+.team-main {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.team-logo {
+  height: 60px; /* Logo maior no desktop */
+  
+}
+
+.team-main h2 {
+  font-size: 2.2rem;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+
+
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Grid de Pilotos - Lado a Lado no Desktop */
+.drivers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Força duas colunas */
+  gap: 30px;
+}
+
+.driver-mini-card {
+  display: flex;
+  align-items: center;
+  background: #15151e;
+  padding: 15px;
+  border: 1px solid var(--f1-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.driver-mini-card:hover {
+  background: #252530;
+  border-color: #666;
+  transform: scale(1.02);
+}
+
+.driver-mini-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px; /* Quadrado arredondado fica mais moderno */
+  object-fit: cover;
+  margin-right: 25px;
+  filter: grayscale(30%);
+  transition: 0.3s;
+}
+
+.driver-mini-card:hover img {
+  filter: grayscale(0%);
+}
+
+.driver-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.driver-info span {
+  font-size: 0.9rem;
+  color: #949498;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Estilo para quando não houver história aberta para não ficar vazio */
+.drivers-grid {
+  margin-top: 20px;
+}

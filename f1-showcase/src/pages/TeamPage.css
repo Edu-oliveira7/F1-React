@@ -1,0 +1,49 @@
+.team-detail-logo {
+  max-width: 200px;
+  filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+}
+
+.team-header {
+  border-left: 8px solid var(--team-color, #000);
+  animation: slideIn 0.8s ease-out;
+}
+
+.driver-detail-card {
+  border: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.driver-detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.driver-detail-photo {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+/* Animações */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
