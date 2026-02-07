@@ -36,8 +36,7 @@ function Layout() {
       <footer className="f1-footer py-4 mt-5">
         <Container>
           <div className="text-center">
-            <p className="mb-2 fw-bold">© 2026 FORMULA 1 WORLD CHAMPIONSHIP LIMITED</p>
-            <p className="mb-0 small text-muted">Dados oficiais da F1® | Projeto educativo React</p>
+            <p className="mb-0 small text-white"> | Projeto educativo React | Fan project</p>
             <div className="footer-flags mt-3">
               <span className="flag-red"></span>
               <span className="flag-yellow mx-2"></span>
