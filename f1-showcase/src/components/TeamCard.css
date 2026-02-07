@@ -1,352 +1,132 @@
-/* TeamCard.css */
 .team-card {
-  border-radius: 16px !important;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: 1px solid #333;
+  border-radius: 12px;
+  cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: white;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Importante para Row/Col do Bootstrap */
-  min-height: 450px; /* Altura mínima garantida */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Container do Card.Body com altura fixa */
-.team-card .card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 400px; /* Altura mínima do conteúdo */
+
+.team-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--team-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), 
+              0 0 20px var(--team-color);
 }
 
-.team-card::before {
-  content: '';
+.card-shine {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.8) 50%,
-    rgba(255,255,255,0) 100%);
-  z-index: 2;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(255,255,255,0.05) 0%, 
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
-.team-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
-}
-
-.team-card:hover::before {
-  opacity: 1;
-  animation: shine 1.5s ease-in-out;
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.team-color-bar {
-  height: 8px;
-  width: 100%;
-  transition: height 0.3s ease;
-  flex-shrink: 0; /* Não diminui */
-}
-
-.team-card:hover .team-color-bar {
-  height: 12px;
-}
-
-.team-logo-container {
-  position: relative;
+.logo-container {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-bottom: 15px;
-  flex-shrink: 0; /* Altura fixa */
 }
 
-.team-logo-img {
-  max-height: 50px;
-  max-width: 180px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-  transition: all 0.4s ease;
-  object-fit: contain; /* Mantém proporção */
-}
-
-.team-card:hover .team-logo-img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+.team-logo-small {
+  max-height: 100%;
+  max-width: 120px;
+  object-fit: contain;
 }
 
 .team-name {
+  color: #fff;
   font-family: 'Titillium Web', sans-serif;
   font-weight: 700;
-  font-size: 1.3rem;
-  position: relative;
-  padding-bottom: 8px;
-  margin-bottom: 15px;
-  line-height: 1.3;
-  min-height: 50px; /* Altura fixa para nome */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-shrink: 0; /* Não diminui */
-}
-
-.team-name::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 2px;
-  background-color: currentColor;
-  opacity: 0.3;
-}
-
-/* SEÇÃO DE PILOTOS COMPACTA - Altura fixa */
-.drivers-compact-section {
-  padding: 10px 0;
-  margin-bottom: 15px;
-  flex: 1; /* Ocupa espaço disponível */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 150px; /* Altura mínima garantida */
-}
-
-.drivers-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-}
-
-.driver-compact {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  justify-content: center;
-}
-
-.driver-photo-name-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
-
-.driver-photo-compact {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  margin: 0 auto;
-  flex-shrink: 0; /* Tamanho fixo */
-}
-
-.driver-photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s ease;
-  border: 2px solid #f8f9fa;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.driver-photo-frame {
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border-radius: 50%;
-  border: 2px solid;
-  opacity: 0.3;
-  transition: all 0.3s ease;
-}
-
-.driver-compact:hover .driver-photo-img {
-  transform: scale(1.08);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-}
-
-.driver-compact:hover .driver-photo-frame {
-  opacity: 0.6;
-  transform: scale(1.05);
-}
-
-.driver-name-compact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  min-height: 40px; /* Altura fixa para nomes */
-}
-
-.driver-first-name {
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: #333;
-  line-height: 1.2;
-}
-
-.driver-last-name {
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: #666;
-  line-height: 1.2;
-  margin-top: 2px;
-}
-
-.driver-divider {
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 300;
-  font-size: 1.2rem;
-  color: #ddd;
-  margin: 0 5px;
-  flex-shrink: 0; /* Tamanho fixo */
-}
-
-/* Botão - Posição fixa no bottom */
-.team-button-container {
-  margin-top: auto; /* Empurra para baixo */
-  padding-top: 15px;
-  flex-shrink: 0; /* Não diminui */
-}
-
-.team-button {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px !important;
-  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin: 0;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease !important;
-  border: none !important;
-  font-size: 0.9rem;
-  padding: 10px 15px;
+}
+
+.team-accent-line {
+  height: 3px;
   width: 100%;
-  min-height: 44px; /* Altura fixa do botão */
+  background-color: var(--team-color);
+  margin: 15px 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--team-color);
+}
+
+
+.drivers-list {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.drivers-label {
+  color: #666;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.driver-name-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-bottom: 6px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.team-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.driver-name-row:last-child {
+  margin-bottom: 0;
+}
+
+.driver-number {
+  color: var(--team-color);
+  font-weight: 900;
+  font-size: 0.9rem;
+  margin-right: 10px;
+  min-width: 25px;
+}
+
+.driver-text {
+  color: #ddd;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+
+.btn-see-more {
+  background: transparent;
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(255,255,255,0.2), 
-    transparent);
-  transition: left 0.7s ease;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
 }
 
-.team-button:hover {
+.btn-see-more:hover {
+  background: var(--team-color);
+  color: #fff !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.team-button:hover::before {
-  left: 100%;
-}
-
-.button-text {
-  margin-right: 6px;
-  white-space: nowrap; /* Evita quebra de linha */
-}
-
-.button-icon {
-  transition: transform 0.3s ease;
-  font-weight: bold;
-}
-
-.team-button:hover .button-icon {
-  transform: translateX(4px);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .team-card {
-    min-height: 420px; /* Menor em mobile */
-  }
-  
-  .team-card .card-body {
-    min-height: 370px;
-  }
-  
-  .drivers-row {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .driver-compact {
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .driver-divider {
-    display: none;
-  }
-  
-  .driver-photo-compact {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .driver-name-compact {
-    min-height: 35px;
-  }
-  
-  .team-name {
-    font-size: 1.1rem;
-    min-height: 45px;
-  }
-  
-  .team-logo-img {
-    max-height: 40px;
-  }
-  
-  .drivers-compact-section {
-    min-height: 130px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .driver-photo-compact {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .driver-first-name {
-    font-size: 0.8rem;
-  }
-  
-  .driver-last-name {
-    font-size: 0.7rem;
-  }
-  
-  .drivers-compact-section {
-    min-height: 140px;
-  }
+.btn-see-more:active {
+  transform: translateY(0);
 }
